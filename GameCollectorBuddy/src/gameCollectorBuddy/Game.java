@@ -111,4 +111,77 @@ public class Game
 	{
 		return completed;
 	}
+	
+	///////////////////
+	//      SETS     //
+	///////////////////
+	void setTitle(String gtitle)
+	{
+		title = gtitle;
+	}
+	
+	void setGameSystem(String ggameSystem)
+	{
+		gameSystem = ggameSystem;
+	}
+	
+	void setURL(String gURL)
+	{
+		URL = gURL;
+	}
+	
+	void setCondition(String gcondition)
+	{
+		condition = gcondition;
+	}
+	
+	void setUPC(String gUPC)
+	{
+		UPC = gUPC;
+	}
+	
+	void setReleaseDate(String greleaseDate)
+	{
+		releaseDate = greleaseDate;
+	}
+	
+	void setESRB(String gESRB)
+	{
+		ESRB = gESRB;
+	}
+	
+	void setCover(Image gcover)
+	{
+		cover = gcover;
+	}
+	
+	void setNotes(String gnotes)
+	{
+		notes = gnotes;
+	}
+	
+	void setPaid(BigDecimal gpaid)
+	{
+		paid = gpaid;
+	}
+	
+	void setValue(BigDecimal gvalue)
+	{
+		value = gvalue;
+	}
+	
+	void setRaiting(int graiting)
+	{
+		raiting = graiting;
+	}
+	
+	void setCopies(int gcopies)
+	{
+		copies = gcopies;
+	}
+	
+	void setCompleted(Boolean gcompleted)
+	{
+		completed = gcompleted;
+	}
 }
