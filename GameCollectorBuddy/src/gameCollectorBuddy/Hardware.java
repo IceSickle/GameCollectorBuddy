@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import javafx.scene.image.Image;
 
-public class Game implements Serializable, Comparable<Game>
+public class Hardware implements Serializable, Comparable<Game>
 {
 	private Integer id = null;
 	private String title = null;
@@ -23,7 +23,7 @@ public class Game implements Serializable, Comparable<Game>
 	private Boolean completed = null;
 	
 	//CONSTRUCTOR
-	public Game(Integer gid, String gtitle, String ggameSystem, String gURL, String gcondition, String gUPC, String greleaseDate, String gESRB, Image gcover, String gnotes, BigDecimal gpaid, BigDecimal gvalue, int graiting, int gcopies, Boolean gcompleted)
+	public Hardware(Integer gid, String gtitle, String ggameSystem, String gURL, String gcondition, String gUPC, String greleaseDate, String gESRB, Image gcover, String gnotes, BigDecimal gpaid, BigDecimal gvalue, int graiting, int gcopies, Boolean gcompleted)
 	{
 		id = gid;
 		title = gtitle;
