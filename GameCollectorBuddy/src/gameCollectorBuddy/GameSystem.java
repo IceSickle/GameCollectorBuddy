@@ -6,13 +6,13 @@ import java.util.List;
 
 public class GameSystem
 {
-	private String name;
+	private String name = "";
 	private List<Game> games = new ArrayList<Game>();
 	private List<Hardware> hardware = new ArrayList<Hardware>();
 	
-	public GameSystem()
+	public GameSystem(String sname)
 	{
-		
+		name = sname;
 	}
 	
 	public void saveData()
@@ -25,6 +25,11 @@ public class GameSystem
 		{
 			h.writeGame();
 		}
+	}
+	
+	public String getName()
+	{
+		return name;
 	}
 	
 	public void updateValues()
@@ -57,12 +62,25 @@ public class GameSystem
 		return false;
 	}
 	
+	public boolean contains(Hardware h)
+	{
+		for(Game x: games)
+		{
+			//System.out.println(x.getTitle() + " : " + g.getTitle());
+			if(h.getTitle().equalsIgnoreCase(x.getTitle()))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	//FOR DEBUG ONLY
 	public void printGames()
 	{
 		for(Game g: games)
 		{
-			System.out.println(g.getTitle() + " " + g.getWorth() + " " + g.getURL());
+			System.out.println(g.getTitle() + " " + g.getValue() + " " + g.getURL());
 		}
 	}
 }
