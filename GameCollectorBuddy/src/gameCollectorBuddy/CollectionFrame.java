@@ -1,5 +1,6 @@
 package gameCollectorBuddy;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -16,13 +17,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-public class CollectionFrame extends Application 
+public class CollectionFrame extends Application implements Serializable
 {
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try 
 		{
+			Collection myCollection = new Collection();
 			Image temp = new Image(getClass().getResourceAsStream("6489.jpg"));
 			Game g1 = new Game(1, "Zelda", "NES", "http://videogames.pricecharting.com/game/nes/legend-of-zelda", "Loose", "UPC 74674738738", "09-01-2001", "E", temp, "Free Poster!", new BigDecimal("9.99"), new BigDecimal("20.00"), 10, 1, true, LocalDate.now());
 			GameSystem NES = new GameSystem("NES");
@@ -42,6 +44,7 @@ public class CollectionFrame extends Application
 					NES.printGames();
 					LocalDate date = datePicker.getValue();
 					System.out.println(date);
+					myCollection.findGame("mario_rpg");
 				}
 			});
 			/*
