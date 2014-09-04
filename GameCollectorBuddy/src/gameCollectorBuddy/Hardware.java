@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import javafx.scene.image.Image;
 
-public class Hardware implements Serializable, Comparable<Game>
+public class Hardware implements Serializable, Comparable<Hardware>
 {
 	private Integer id = null;
 	private String title = null;
@@ -47,9 +47,9 @@ public class Hardware implements Serializable, Comparable<Game>
 		
 	}
 	
-	public boolean equals(Game v)
+	public boolean equals(Hardware h)
 	{
-		if(v.getTitle() == this.getTitle() && v.getGameSystem() == this.getGameSystem())
+		if(h.getTitle() == this.getTitle() && h.getGameSystem() == this.getGameSystem())
 		{
 			return true;
 		}
@@ -60,9 +60,9 @@ public class Hardware implements Serializable, Comparable<Game>
 	}
 	
 	@Override
-	public int compareTo(Game g)
+	public int compareTo(Hardware h)
 	{
-		return getTitle().compareToIgnoreCase(g.getTitle());
+		return getTitle().compareToIgnoreCase(h.getTitle());
 	}
 	///////////////////
 	//      GETS     //
