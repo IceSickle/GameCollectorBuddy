@@ -1,5 +1,13 @@
 package gameCollectorBuddy;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -19,12 +27,14 @@ import javafx.stage.Stage;
 
 public class CollectionFrame extends Application implements Serializable
 {
+	static Collection myCollection = new Collection();
+	
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try 
 		{
-			Collection myCollection = new Collection();
+			
 			Image temp = new Image(getClass().getResourceAsStream("6489.jpg"));
 			Game g1 = new Game(1, "Zelda", "NES", "http://videogames.pricecharting.com/game/nes/legend-of-zelda", "Loose", "UPC 74674738738", "09-01-2001", "E", temp, "Free Poster!", new BigDecimal("9.99"), new BigDecimal("20.00"), 10, 1, true, LocalDate.now());
 			GameSystem NES = new GameSystem("NES");
@@ -45,6 +55,7 @@ public class CollectionFrame extends Application implements Serializable
 					LocalDate date = datePicker.getValue();
 					System.out.println(date);
 					myCollection.findGame("mario_rpg");
+					save();
 				}
 			});
 			/*
@@ -86,6 +97,38 @@ public class CollectionFrame extends Application implements Serializable
 	
 	public static void main(String[] args) 
 	{
+		load();
 		launch(args);
+	}
+	
+	public static void load()
+	{
+		try 
+		{
+	        InputStream file = new FileInputStream("Collection.ser");
+	        InputStream buffer = new BufferedInputStream(file);
+	        ObjectInput input = new ObjectInputStream (buffer);
+			myCollection = (Collection) input.readObject();
+		} 
+		catch (IOException | ClassNotFoundException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	public static void save()
+	{
+		try
+		{
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Collection.ser"));
+			out.writeObject(myCollection);
+			out.close();
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
