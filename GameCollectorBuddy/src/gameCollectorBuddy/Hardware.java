@@ -2,6 +2,8 @@ package gameCollectorBuddy;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import javafx.scene.image.Image;
 
 public class Hardware implements Serializable, Comparable<Hardware>
@@ -21,9 +23,10 @@ public class Hardware implements Serializable, Comparable<Hardware>
 	private int raiting = 0;
 	private int copies = 0;
 	private Boolean completed = null;
+	LocalDate date = null;
 	
 	//CONSTRUCTOR
-	public Hardware(Integer gid, String gtitle, String ggameSystem, String gURL, String gcondition, String gUPC, String greleaseDate, String gESRB, Image gcover, String gnotes, BigDecimal gpaid, BigDecimal gvalue, int graiting, int gcopies, Boolean gcompleted)
+	public Hardware(Integer gid, String gtitle, String ggameSystem, String gURL, String gcondition, String gUPC, String greleaseDate, String gESRB, Image gcover, String gnotes, BigDecimal gpaid, BigDecimal gvalue, int graiting, int gcopies, Boolean gcompleted, LocalDate gdate)
 	{
 		id = gid;
 		title = gtitle;
@@ -40,6 +43,7 @@ public class Hardware implements Serializable, Comparable<Hardware>
 		raiting = graiting;
 		copies = gcopies;
 		completed = gcompleted;
+		date = gdate;
 	}
 	
 	public void writeGame()
@@ -142,6 +146,10 @@ public class Hardware implements Serializable, Comparable<Hardware>
 		return completed;
 	}
 	
+	public LocalDate getDate()
+	{
+		return date;
+	}
 	///////////////////
 	//      SETS     //
 	///////////////////
@@ -218,5 +226,10 @@ public class Hardware implements Serializable, Comparable<Hardware>
 	public void setCompleted(Boolean gcompleted)
 	{
 		completed = gcompleted;
+	}
+	
+	public void setDate(LocalDate gdate)
+	{
+		date = gdate;
 	}
 }
