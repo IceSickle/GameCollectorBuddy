@@ -28,7 +28,6 @@ public class Collection implements Serializable
 			URL url = new URL(searchURL);
 			BufferedReader buff = new BufferedReader(new InputStreamReader(url.openStream()));
 			boolean EOF = false;
-			System.out.println(url.toString());
 			
 			//Reads the first 10 lines the 10th line 
 			//will indicate if the game was found or multiple games were found
@@ -70,8 +69,20 @@ public class Collection implements Serializable
 			//if Search Results was not on the 10th line then the game was found and the url can be returned.
 			else
 			{
-				System.out.println("Game Found!");
-				games.add(searchURL);
+				line = line.trim();
+				line = line.substring(7,line.length()-8);
+				//Found a game
+				if(line.length() > 0)
+				{
+					System.out.println("Game Found!");
+					System.out.println(url.toString());
+					games.add(searchURL);
+				}
+				//Else no results were found
+				else
+				{
+					//no results do nothing list will be passed back empty
+				}
 			}
 		}
 		catch (IOException e) 
@@ -82,6 +93,7 @@ public class Collection implements Serializable
 
 		//returns the list of games if length of this list is 1 then the game 
 		//was an exact hit. If greater then 1 then multiple games were found.
+		//if list length is 0 then no results were found.
 		return games;
 	}
 }

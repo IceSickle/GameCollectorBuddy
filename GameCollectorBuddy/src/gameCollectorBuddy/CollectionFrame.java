@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -47,6 +48,7 @@ public class CollectionFrame extends Application implements Serializable
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			DatePicker datePicker = new DatePicker();
 			Button btn = new Button("", new ImageView(temp));
+			TextField text = new TextField();
 			btn.setOnAction(new EventHandler<ActionEvent>()
 			{
 				@Override public void handle(ActionEvent e)
@@ -54,7 +56,7 @@ public class CollectionFrame extends Application implements Serializable
 					NES.printGames();
 					LocalDate date = datePicker.getValue();
 					System.out.println(date);
-					myCollection.findGame("metroid");
+					myCollection.findGame(text.getText().trim().replace(" ", "_"));
 					save();
 				}
 			});
@@ -74,6 +76,7 @@ public class CollectionFrame extends Application implements Serializable
 			Button btn5 = new Button("", new ImageView(temp));
 			*/
 			Label top = new Label("This is the top");
+			centerRoot.getChildren().add(text);
 			centerRoot.getChildren().add(btn);
 			centerRoot.getChildren().add(datePicker);
 			/*
