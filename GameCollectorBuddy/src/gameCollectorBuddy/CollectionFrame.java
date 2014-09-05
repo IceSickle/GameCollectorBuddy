@@ -54,7 +54,7 @@ public class CollectionFrame extends Application implements Serializable
 					NES.printGames();
 					LocalDate date = datePicker.getValue();
 					System.out.println(date);
-					myCollection.findGame("mario_rpg");
+					myCollection.findGame("metroid");
 					save();
 				}
 			});
